@@ -65,6 +65,6 @@ Rajshahi – 6204
 
 | Lab No. | Experiment Title | Report |
 | :---: | :---: | :---: |
-| 01 | Number Systems | [📄 View Report](https://github.com/uddiponchowdhury/ECE-2112_2410019/blob/main/Lab-01/Queue_LinkedList_Lab_Report.pdf)|
+| 01 | Number Systems | [📄 View Report]([https://github.com/uddiponchowdhury/ECE-2112_2410019/blob/main/Lab-01/Queue_LinkedList_Lab_Report.pdf](https://github.com/uddiponchowdhury/ECE-2112_2410019/blob/main/DT_Lab_01.pdf))|
 
 </div>
