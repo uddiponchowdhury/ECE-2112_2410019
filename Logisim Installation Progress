@@ -1,0 +1,71 @@
+# Logisim Evolution Installation Guide (Windows 11)
+
+This guide explains how to install **Logisim Evolution** on **Windows 11**.
+
+## Prerequisites
+
+Before installing, make sure you have:
+
+- Windows 11 (64-bit recommended)
+- Administrator privileges (recommended)
+- Java Runtime Environment (JRE) 17 or later *(only if using the `.jar` version)*
+
+> **Note:** Newer releases may also provide a standalone Windows executable that does not require a separate Java installation.
+
+## Installation Steps
+
+### 1. Download Logisim Evolution
+
+- Visit the official GitHub releases page:
+  - https://github.com/logisim-evolution/logisim-evolution/releases
+
+- Download the latest Windows release (`.exe`) or the Java (`.jar`) version.
+
+
+### 2. Install or Run
+
+#### Option A: Windows Executable (.exe)
+
+1. Double-click the downloaded `.exe` file.
+2. Follow the installation wizard.
+3. Launch **Logisim Evolution** from the Start Menu or Desktop shortcut.
+
+#### Option B: Java (.jar)
+
+1. Install Java 17 or later if it is not already installed.
+2. Double-click the `.jar` file.
+3. If it does not open, right-click the file and select **Open with → Java(TM) Platform SE Binary**.
+
+## Verifying the Installation
+
+1. Open **Logisim Evolution**.
+2. Create a new project.
+3. Place a simple logic gate (e.g., AND gate).
+4. Run a quick simulation to verify that the software is working correctly.
+
+## Troubleshooting
+
+### Application does not open
+
+- Ensure Java 17 or later is installed (for the `.jar` version).
+- Restart your computer and try again.
+- Download the latest release if the file is corrupted.
+
+### Windows SmartScreen Warning
+
+If Windows displays a security warning:
+
+1. Click **More info**.
+2. Select **Run anyway** (only if the file was downloaded from the official GitHub repository).
+
+## Uninstallation
+
+1. Open **Settings → Apps → Installed Apps**.
+2. Find **Logisim Evolution**.
+3. Click **Uninstall** and follow the prompts.
+
+---
+
+**Software:** Logisim Evolution  
+**Platform:** Windows 11  
+**Purpose:** Digital logic circuit design and simulation
