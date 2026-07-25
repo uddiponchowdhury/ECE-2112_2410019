@@ -1,0 +1,1490 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{center}
+
+{\itshape Heavens Light is Our Guide}
+
+\vspace{0.1cm}
+
+% Uncomment after adding the logo
+\includegraphics[width=5cm]{ruet-logo.png}
+
+\vspace{0.2cm}
+
+{\Large\textbf{Rajshahi University of Engineering and Technology}}
+
+\vspace{0.2cm}
+
+{\Large\textbf{Department of Electrical \& Computer Engineering}}
+
+\vspace{1cm}
+
+\textbf{Course Title}
+
+\vspace{0.2cm}
+
+Digital Techniques Sessional
+
+\vspace{0.3cm}
+
+\textbf{Course No: ECE 2112}
+
+\vspace{0.5cm}
+
+\textbf{Lab Report -01}
+
+\vspace{0.8cm}
+
+\textbf{Name of the Experiment: Introduction to Digital Logic}
+
+\vspace{0.5cm}
+
+\textbf{Date of Submission: 25 July 2026}
+
+\end{center}
+
+\vspace{2cm}
+
+\noindent
+\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+\textbf{Submitted By:} & \textbf{Submitted To:} \\[0.7cm]
+Uddipon Chowdhury & Mst. Mazeda Noor Tasnim \\
+Roll: 2410019 & Lecturer \\
+Registration No: 1072 & ECE, RUET \\
+\end{tabular}
+
+
+% Experiment 1%
+
+\section{Experiment 1: Implementation of OR Gate Using NOR Gates}
+
+\subsection{Objective}
+
+The objective of this experiment is to design and simulate an OR gate using only NOR gates in Logisim Evolution and verify its operation using the corresponding truth table.
+
+%---------------------------------------------------------------------
+
+\subsection{Theory}
+
+Digital logic circuits are constructed using logic gates, which perform fundamental Boolean operations on binary inputs. Among the various logic gates, the OR gate and NOR gate are widely used in digital systems.
+
+An OR gate produces a logic HIGH ($1$) whenever at least one of its inputs is HIGH. The Boolean expression of a two-input OR gate is
+
+\begin{equation}
+Y = A + B
+\end{equation}
+
+where $A$ and $B$ are the input variables and $Y$ is the output.
+
+The truth table of a two-input OR gate is shown in Table~\ref{tab:or_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of a Two-Input OR Gate}
+\label{tab:or_truth}
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & $Y=A+B$\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+A NOR gate is formed by connecting a NOT gate after an OR gate. Therefore, its output is the complement of the OR operation. The Boolean expression of a two-input NOR gate is
+
+\begin{equation}
+Y=\overline{A+B}
+\end{equation}
+
+The truth table of the NOR gate is presented in Table~\ref{tab:nor_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of a Two-Input NOR Gate}
+\label{tab:nor_truth}
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & $Y=\overline{A+B}$\\
+\hline
+0 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 0\\
+1 & 1 & 0\\
+\hline
+\end{tabular}
+\end{table}
+
+The NOR gate is known as a \textbf{universal gate} because any logic gate can be implemented using only NOR gates. To realize an OR gate using NOR gates, the output of the first NOR gate is inverted using a second NOR gate whose two inputs are connected together.
+
+Mathematically,
+
+\begin{align}
+X &= \overline{A+B}\\
+Y &= \overline{X+X}\\
+&=\overline{\overline{A+B}}\\
+&=A+B
+\end{align}
+
+Thus, the OR function is successfully obtained using only NOR gates.
+
+%---------------------------------------------------------------------
+
+
+
+%---------------------------------------------------------------------
+
+\subsection{Circuit Diagram}
+
+The OR gate was implemented using two NOR gates in Logisim Evolution. The completed circuit is shown in Figure~\ref{fig:or_nor}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Figures/Screenshot 2026-07-25 164440.png}
+    \caption{Implementation of an OR gate using NOR gates in Logisim Evolution.}
+    \label{fig:or_nor}
+\end{figure}
+% Insert your circuit image here
+
+
+%---------------------------------------------------------------------
+
+\subsection{Procedure}
+
+The experiment was carried out in Logisim according to the following steps:
+
+\begin{enumerate}
+    \item Open the Logisim software and create a new project.
+
+    \item From the \textbf{Gates} library, place two \textbf{NOR} gates onto the workspace.
+
+    \item Connect two input pins, labeled $A$ and $B$, to the inputs of the first NOR gate.
+
+    \item Connect the output of the first NOR gate to both input terminals of the second NOR gate so that it functions as an inverter.
+
+    \item Attach an output pin to the output of the second NOR gate.
+
+    \item Verify that all connections are properly completed and that the circuit has no wiring errors.
+
+    \item Apply all possible combinations of binary inputs $(00,\;01,\;10,\;11)$ by toggling the input pins.
+
+    \item Observe the output corresponding to each input combination and record the results.
+
+    \item Compare the observed outputs with the theoretical truth table of the OR gate to verify the correctness of the implementation.
+\end{enumerate}
+
+%---------------------------------------------------------------------
+
+
+% Insert Multisim screenshot here
+
+
+%---------------------------------------------------------------------
+
+
+% Insert oscilloscope/output image
+
+
+%---------------------------------------------------------------------
+
+\subsection{Observation Table}
+
+\begin{table}[H]
+\centering
+\caption{Observed Truth Table}
+\label{tab:observation}
+\begin{tabular}{|c|c|c|c|}
+\hline
+A & B & Expected Output & Observed Output\\
+\hline
+0 & 0 & 0 & 0\\
+0 & 1 & 1 & 1\\
+1 & 0 & 1 & 1\\
+1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+%---------------------------------------------------------------------
+
+\subsection{Discussion}
+
+The OR gate was successfully realized using only NOR gates in Logisim Evolution. The circuit was designed based on the Boolean expression of the OR function using universal gates. The simulation was performed for all possible input combinations, and the observed outputs were found to be identical to the theoretical truth table of the OR gate. This experiment demonstrates that the NOR gate can be used as a universal gate to implement other logic functions and reinforces the concepts of Boolean algebra and digital logic design.
+
+%---------------------------------------------------------------------
+
+\subsection{Result}
+
+The OR gate was successfully implemented using only NOR gates in Logisim Evolution. The simulation results matched the theoretical truth table for all input combinations, confirming the correctness of the circuit.
+
+%---------------------------------------------------------------------
+
+\subsection{Conclusion}
+
+In this experiment, an OR gate was implemented and verified using only NOR gates in Logisim Evolution. The simulation results agreed with the theoretical analysis for all input combinations. The experiment confirmed the universality of the NOR gate and enhanced the understanding of logic gate implementation using Boolean algebra.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Experiment 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experiment 2: Implementation of OR Gate Using NAND Gates}
+
+\subsection{Objective}
+
+The objective of this experiment is to:
+
+\begin{itemize}
+    \item Understand the operation of the universal NAND gate.
+    \item Implement an OR gate using only NAND gates based on De Morgan's theorem.
+    \item Design and simulate the circuit using \textbf{Logisim Evolution}.
+    \item Verify the correctness of the implemented circuit by comparing the simulation results with the standard OR gate truth table.
+\end{itemize}
+
+\subsection{Theory}
+
+A NAND (NOT-AND) gate is one of the most important logic gates in digital electronics because it is classified as a \textbf{universal gate}. A universal gate is capable of implementing any Boolean function without requiring any other type of logic gate. Consequently, all basic logic gates such as AND, OR, NOT, XOR, and XNOR can be realized solely by combining NAND gates.
+
+The Boolean expression of a two-input NAND gate is
+
+\begin{equation}
+Y=\overline{A\cdot B}
+\end{equation}
+
+where $A$ and $B$ are the inputs and $Y$ is the output.
+
+According to \textbf{De Morgan's theorem},
+
+\begin{equation}
+A+B=\overline{\overline{A}\cdot\overline{B}}
+\end{equation}
+
+The complemented inputs can easily be obtained using NAND gates because connecting both inputs of a NAND gate together produces an inverter.
+
+\begin{equation}
+\overline{A}=A \ \text{NAND}\ A
+\end{equation}
+
+\begin{equation}
+\overline{B}=B \ \text{NAND}\ B
+\end{equation}
+
+Therefore, the OR gate can be implemented using only NAND gates as
+
+\begin{equation}
+A+B=(A\ \text{NAND}\ A)\ \text{NAND}\ (B\ \text{NAND}\ B)
+\end{equation}
+
+This implementation requires three NAND gates:
+\begin{enumerate}
+    \item One NAND gate to invert input $A$.
+    \item One NAND gate to invert input $B$.
+    \item One NAND gate to combine the inverted inputs and produce the OR output.
+\end{enumerate}
+
+\subsection{Required Software}
+
+\begin{itemize}
+    \item Logisim Evolution
+\end{itemize}
+
+\subsection{Circuit Diagram}
+
+Figure~\ref{fig:exp2_circuit} shows the implementation of an OR gate using only NAND gates designed in Logisim Evolution.
+
+\begin{figure}[H]
+    \centering
+    % Insert circuit diagram here
+    \includegraphics[width=0.75\textwidth]{circuit2.png}
+    \caption{Implementation of OR Gate Using NAND Gates in Logisim Evolution}
+    \label{fig:exp2_circuit}
+\end{figure}
+
+\subsection{Truth Table of NAND Gate}
+
+The truth table of a two-input NAND gate is shown in Table~\ref{tab:nand_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of NAND Gate}
+\label{tab:nand_truth}
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & $Y=\overline{AB}$\\
+\hline
+0 & 0 & 1\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 0\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Simulation Procedure}
+
+The experiment was carried out entirely through digital simulation using \textbf{Logisim Evolution}. No physical hardware implementation was performed.
+
+\begin{enumerate}
+    \item Open Logisim Evolution and create a new project.
+    \item Place three two-input NAND gates from the Gates library.
+    \item Configure the first NAND gate by connecting both of its inputs to input $A$ so that it functions as a NOT gate.
+    \item Configure the second NAND gate similarly by connecting both of its inputs to input $B$.
+    \item Connect the outputs of the first and second NAND gates to the inputs of the third NAND gate.
+    \item Connect two input pins labeled $A$ and $B$.
+    \item Connect one output pin labeled $Y$ to the output of the third NAND gate.
+    \item Apply all possible combinations of binary inputs using the input switches.
+    \item Observe the output for each input combination.
+    \item Compare the obtained output with the standard truth table of the OR gate.
+    \item Save the completed circuit and capture the simulation screenshot.
+\end{enumerate}
+
+\subsection{Simulation Setup}
+
+The complete circuit was designed and verified using Logisim Evolution. The simulation environment consisted of:
+
+\begin{itemize}
+    \item Two input switches representing logic inputs $A$ and $B$.
+    \item Three two-input NAND gates.
+    \item One output indicator (LED/output pin).
+    \item Real-time logic simulation in Logisim Evolution.
+\end{itemize}
+
+
+\subsection{Observed Truth Table}
+
+The observed outputs obtained from the Logisim Evolution simulation are presented in Table~\ref{tab:or_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Observed Truth Table of OR Gate Using NAND Gates}
+\label{tab:or_truth}
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & Output ($A+B$)\\
+\hline
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 1\\
+1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Result}
+
+The simulation output exactly matched the expected truth table of the OR gate for all possible input combinations. This confirms that an OR gate can be successfully implemented using only NAND gates by applying De Morgan's theorem.
+
+\subsection{Discussion}
+
+The NAND gate is a universal logic gate capable of implementing any Boolean function. In this experiment, the OR gate was realized by first generating the complements of the two input signals using NAND gates configured as inverters. These complemented signals were then applied to a third NAND gate, producing the OR function according to De Morgan's theorem.
+
+The use of Logisim Evolution allowed the circuit to be designed, simulated, and verified without physical hardware. The simulation demonstrated that the implemented circuit behaved identically to a standard OR gate for every possible input combination. This experiment illustrates the practical importance of universal gates in digital logic design, where a single gate type can be used to construct complex digital systems.
+
+\subsection{Conclusion}
+
+In this experiment, an OR gate was successfully implemented using only NAND gates in the Logisim Evolution simulation environment. The simulation results agreed completely with the theoretical OR gate truth table, confirming the correctness of the design. The experiment demonstrated the application of De Morgan's theorem and highlighted the significance of NAND gates as universal building blocks in digital electronics.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiment 3: Implementation of AND Gate Using NOR Gates}
+
+\subsection{Objective}
+
+The objective of this experiment is to implement a two-input AND gate using only NOR gates in the Logisim Evolution simulation environment. This experiment aims to demonstrate the universality of the NOR gate and verify that an AND gate can be realized exclusively using NOR logic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Theory}
+
+Digital logic circuits are constructed using logic gates that perform Boolean operations on binary inputs. Among the basic logic gates, the AND gate produces a logic HIGH output only when all of its inputs are HIGH.
+
+The Boolean expression of a two-input AND gate is
+
+\begin{equation}
+Y=A\cdot B
+\end{equation}
+
+where
+
+\begin{itemize}
+    \item $A$ and $B$ are the input variables.
+    \item $Y$ is the output.
+\end{itemize}
+
+The truth table of a two-input AND gate is presented in Table~\ref{tab:andtruth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of a Two-Input AND Gate}
+\label{tab:andtruth}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Input A} & \textbf{Input B} & \textbf{Output ($A \cdot B$)}\\
+\hline
+0 & 0 & 0\\
+\hline
+0 & 1 & 0\\
+\hline
+1 & 0 & 0\\
+\hline
+1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+The NOR gate is known as a universal logic gate because every Boolean function can be implemented using only NOR gates. The Boolean expression of a NOR gate is
+
+\begin{equation}
+Y=\overline{A+B}
+\end{equation}
+
+Using De Morgan's theorem, an AND gate can be implemented entirely with NOR gates as
+
+\begin{equation}
+A\cdot B=\overline{\overline{A}+\overline{B}}
+\end{equation}
+
+where
+
+\begin{align}
+\overline{A}&=A \downarrow A\\
+\overline{B}&=B \downarrow B
+\end{align}
+
+The complete implementation therefore requires three NOR gates:
+
+\begin{enumerate}
+    \item One NOR gate to generate $\overline{A}$.
+    \item One NOR gate to generate $\overline{B}$.
+    \item One NOR gate to perform
+    $\overline{\overline{A}+\overline{B}}$,
+    producing the AND output.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Required Software}
+
+\begin{itemize}
+    \item Logisim Evolution
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Circuit Diagram}
+
+The AND gate was implemented using three NOR gates in Logisim Evolution.
+
+\begin{figure}[H]
+\centering
+% Replace with your circuit screenshot
+\includegraphics[width=0.80\textwidth]{Figures/circuit3.png}
+\caption{Implementation of AND Gate Using NOR Gates in Logisim Evolution}
+\label{fig:exp03_circuit}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simulation Procedure}
+
+The experiment was carried out entirely through simulation using Logisim Evolution. No physical hardware components were used.
+
+The following steps were performed:
+
+\begin{enumerate}
+
+\item Open Logisim Evolution and create a new project.
+
+\item Insert three two-input NOR gates from the Gates library.
+
+\item Place two input pins representing the input variables $A$ and $B$.
+
+\item Connect input $A$ to both inputs of the first NOR gate to obtain the complemented signal $\overline{A}$.
+
+\item Connect input $B$ to both inputs of the second NOR gate to obtain the complemented signal $\overline{B}$.
+
+\item Connect the outputs of the first and second NOR gates to the inputs of the third NOR gate.
+
+\item Connect an output pin to the output of the third NOR gate.
+
+\item Apply all four possible input combinations using the input pins.
+
+\item Observe the output generated by the simulation.
+
+\item Verify that the simulated output matches the standard truth table of a two-input AND gate.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simulation Setup}
+
+The logic circuit was designed and verified using Logisim Evolution.
+
+The simulation consisted of
+
+\begin{itemize}
+    \item Two input pins ($A$ and $B$)
+    \item Three NOR gates
+    \item One output pin
+    \item Connecting wires
+\end{itemize}
+
+Default gate propagation settings provided by Logisim Evolution were used throughout the simulation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+The observed outputs are summarized in Table~\ref{tab:exp03results}.
+
+\begin{table}[H]
+\centering
+\caption{Observed Simulation Results}
+\label{tab:exp03results}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Input A} &
+\textbf{Input B} &
+\textbf{Expected Output} &
+\textbf{Observed Output}\\
+\hline
+0 & 0 & 0 & 0\\
+\hline
+0 & 1 & 0 & 0\\
+\hline
+1 & 0 & 0 & 0\\
+\hline
+1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Discussion}
+
+The simulation verified that an AND gate can be successfully realized using only NOR gates. Initially, the first two NOR gates were configured as inverters by connecting each gate's inputs together. These produced the complemented inputs $\overline{A}$ and $\overline{B}$. The third NOR gate combined the complemented signals according to De Morgan's theorem to generate the final AND output.
+
+The simulated outputs matched the theoretical truth table for every possible input combination, confirming the correctness of the implemented logic circuit. This experiment also demonstrated the practical significance of universal gates in digital circuit design, where a single gate type can be used to implement any Boolean function.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Result}
+
+The AND gate was successfully implemented using only NOR gates in the Logisim Evolution simulation environment. The simulation results agreed completely with the theoretical truth table of the AND gate for all input combinations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conclusion}
+
+This experiment demonstrated the implementation of a two-input AND gate using only NOR gates through digital simulation in Logisim Evolution. The results confirmed the universal property of the NOR gate and validated the application of De Morgan's theorem in digital logic design. The experiment enhanced understanding of Boolean algebra, logic gate transformation, and simulation-based verification of combinational logic circuits.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%===========================================================
+\section{Experiment 4: Implementation of AND Gate Using NAND Gates}
+
+\subsection{Objective}
+
+The objective of this experiment is to implement a two-input AND gate using only NAND gates in the Logisim Evolution simulation environment. The experiment also aims to verify the operation of the implemented circuit by comparing the simulated output with the theoretical truth table of an AND gate.
+
+%-----------------------------------------------------------
+
+\subsection{Theory}
+
+The AND gate is one of the fundamental logic gates used in digital electronics. It performs logical multiplication and produces a HIGH output only when all of its inputs are HIGH. Otherwise, the output remains LOW.
+
+The Boolean expression of a two-input AND gate is
+
+\[
+Y = A \cdot B
+\]
+
+where $A$ and $B$ are the input variables and $Y$ is the output.
+
+The truth table of a two-input AND gate is presented in Table~\ref{tab:and_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of a Two-Input AND Gate}
+\label{tab:and_truth}
+\begin{tabular}{|c|c|c|}
+\hline
+Input A & Input B & Output ($A \cdot B$)\\
+\hline
+0 & 0 & 0\\
+\hline
+0 & 1 & 0\\
+\hline
+1 & 0 & 0\\
+\hline
+1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+The NAND gate is a universal logic gate because any Boolean function can be realized using only NAND gates. The Boolean expression of a NAND gate is
+
+\[
+Y=(A \cdot B)'
+\]
+
+To obtain the AND operation using NAND gates, the output of the first NAND gate is inverted using another NAND gate configured as an inverter. Since a NAND gate acts as a NOT gate when both of its inputs are connected together,
+
+\[
+\overline{\overline{A \cdot B}} = A \cdot B
+\]
+
+Therefore,
+
+\[
+AND(A,B)=\overline{NAND(A,B)}
+\]
+
+This implementation requires two NAND gates.
+
+%-----------------------------------------------------------
+
+\subsection{Required Software}
+
+\begin{itemize}
+    \item Logisim Evolution
+\end{itemize}
+
+%-----------------------------------------------------------
+
+\subsection{Circuit Diagram}
+
+Figure~\ref{fig:and_nand_circuit} illustrates the implementation of an AND gate using two NAND gates in Logisim Evolution.
+
+\begin{figure}[H]
+\centering
+% Insert circuit diagram here
+\includegraphics[width=0.75\textwidth]{Figures/circuit4.png}
+\caption{Implementation of AND Gate Using NAND Gates in Logisim Evolution}
+\label{fig:and_nand_circuit}
+\end{figure}
+
+%-----------------------------------------------------------
+
+\subsection{Simulation Procedure}
+
+The following steps were performed using Logisim Evolution:
+
+\begin{enumerate}
+
+\item Open Logisim Evolution and create a new circuit.
+
+\item Place two input pins and one output pin from the Wiring library.
+
+\item Insert two NAND gates from the Gates library.
+
+\item Connect the two input pins ($A$ and $B$) to the inputs of the first NAND gate.
+
+\item Connect the output of the first NAND gate to both input terminals of the second NAND gate. This configuration allows the second NAND gate to function as an inverter.
+
+\item Connect the output of the second NAND gate to the output pin.
+
+\item Apply all four possible input combinations by toggling the input pins.
+
+\item Observe and record the corresponding output for each input combination.
+
+\item Compare the simulated outputs with the theoretical truth table of the AND gate.
+
+\end{enumerate}
+
+%-----------------------------------------------------------
+
+\subsection{Simulation Setup}
+
+The circuit was designed and simulated entirely using Logisim Evolution. Two input pins represented the logical variables $A$ and $B$, while two NAND gates were interconnected to implement the AND function. An output pin displayed the resulting logic level. Input combinations were manually toggled to verify the behavior of the circuit.
+
+%-----------------------------------------------------------
+
+\subsection{Observed Truth Table}
+
+The simulation results are summarized in Table~\ref{tab:and_observed}.
+
+\begin{table}[H]
+\centering
+\caption{Observed Simulation Results}
+\label{tab:and_observed}
+\begin{tabular}{|c|c|c|}
+\hline
+Input A & Input B & Simulated Output\\
+\hline
+0 & 0 & 0\\
+\hline
+0 & 1 & 0\\
+\hline
+1 & 0 & 0\\
+\hline
+1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+%-----------------------------------------------------------
+
+
+
+%-----------------------------------------------------------
+
+\subsection{Discussion}
+
+The experiment successfully demonstrated the implementation of an AND gate using only NAND gates. The first NAND gate generated the complemented output of the logical AND operation. By feeding this output into both inputs of a second NAND gate, the complemented signal was inverted, producing the required AND function.
+
+The simulation results matched the theoretical truth table for every possible input combination, confirming the correctness of the implemented design. This experiment illustrates the practical significance of universal gates and demonstrates that complex logic functions can be constructed using only NAND gates.
+
+%-----------------------------------------------------------
+
+\subsection{Result}
+
+The AND gate was successfully implemented using two NAND gates in the Logisim Evolution simulation environment. The simulated outputs were identical to the theoretical outputs for all input combinations, confirming the correct realization of the AND logic function.
+
+%-----------------------------------------------------------
+
+\subsection{Conclusion}
+
+The objective of implementing an AND gate using only NAND gates was successfully achieved through simulation in Logisim Evolution. The experiment verified that the NAND gate, as a universal gate, can be used to realize the AND operation by employing an additional NAND gate as an inverter. The observed simulation results were consistent with the theoretical truth table, reinforcing the concepts of Boolean algebra, universal gates, and combinational logic design.
+
+%-----------------------------------------------------------
+
+\subsection{Precautions}
+
+\begin{itemize}
+\item Ensure that all gate connections are made correctly before running the simulation.
+\item Verify that the output of the first NAND gate is connected to both inputs of the second NAND gate.
+\item Check that all input pins are assigned valid binary logic values (0 or 1).
+\item Confirm that the simulation is active before observing the output.
+\item Compare the simulated output with the theoretical truth table to verify correctness.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiment 5: Implementation of NOT Gate Using NOR Gates}
+
+\subsection{Objective}
+
+The objectives of this experiment are:
+
+\begin{itemize}
+    \item To understand the logical operation of a NOT gate.
+    \item To demonstrate that a NOR gate is a universal gate capable of implementing a NOT gate.
+    \item To design and simulate a NOT gate using only NOR gates in Logisim Evolution.
+    \item To verify the simulated output using the truth table.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Theory}
+
+A NOT gate, also known as an inverter, is one of the fundamental digital logic gates. It produces the logical complement of its input. If the input is logic HIGH (1), the output becomes logic LOW (0). Conversely, if the input is logic LOW (0), the output becomes logic HIGH (1).
+
+The Boolean expression of a NOT gate is
+
+\[
+Y=\overline{A}
+\]
+
+where $A$ is the input and $Y$ is the inverted output.
+
+A NOR gate is considered a universal logic gate because every basic logic gate can be implemented using only NOR gates. The logical expression of a two-input NOR gate is
+
+\[
+Y=\overline{A+B}
+\]
+
+When both inputs of the NOR gate are connected together, the expression becomes
+
+\[
+Y=\overline{A+A}
+\]
+
+Using the Idempotent Law,
+
+\[
+A+A=A
+\]
+
+Therefore,
+
+\[
+Y=\overline{A}
+\]
+
+which is exactly the Boolean expression of a NOT gate.
+
+Thus, a single NOR gate with both of its inputs connected together behaves as a NOT gate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Software Used}
+
+\begin{itemize}
+    \item Logisim Evolution (Digital Logic Circuit Simulator)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Circuit Diagram}
+
+Figure~\ref{fig:not_nor_circuit} illustrates the implementation of a NOT gate using a single NOR gate. Both input terminals of the NOR gate are connected to the same input signal.
+
+\begin{figure}[H]
+    \centering
+    % Insert circuit screenshot here
+    \includegraphics[width=0.65\textwidth]{Figures/circuit5.png}
+    \caption{Implementation of a NOT Gate Using a NOR Gate in Logisim Evolution}
+    \label{fig:not_nor_circuit}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Simulation Procedure}
+
+The experiment was carried out entirely using the Logisim Evolution simulation software.
+
+\begin{enumerate}
+    \item Open Logisim Evolution and create a new circuit.
+    
+    \item Insert one two-input NOR gate from the Gates library.
+    
+    \item Connect the input signal $A$ to both input terminals of the NOR gate.
+    
+    \item Connect the output terminal of the NOR gate to an output pin labeled $Y$.
+    
+    \item Place an input pin and use it to toggle between logic LOW (0) and logic HIGH (1).
+    
+    \item Run the simulation by changing the input value.
+    
+    \item Observe the output produced by the NOR gate.
+    
+    \item Verify that the output is always the logical complement of the input according to the NOT gate truth table.
+    
+    \item Capture the circuit diagram and simulation output for documentation.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Truth Table}
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of NOT Gate Implemented Using NOR Gate}
+\label{tab:not_nor_truth}
+\begin{tabular}{|c|c|}
+\hline
+Input ($A$) & Output ($Y=\overline{A}$) \\
+\hline
+0 & 1 \\
+\hline
+1 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Simulation Result}
+
+The simulation confirmed that the NOR gate successfully performed the inversion operation when both of its inputs were connected together. For every change in the input signal, the output produced the exact logical complement, which matches the expected behavior of a NOT gate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Discussion}
+
+The experiment demonstrates one of the most important properties of universal gates. By connecting both inputs of a NOR gate to the same signal, the OR operation reduces to the input itself, and the final inversion performed by the NOR gate produces the NOT operation.
+
+The simulation results obtained in Logisim Evolution were consistent with the theoretical Boolean expression and the truth table. This confirms that complex digital circuits can be designed using only NOR gates without requiring dedicated NOT gate components. Such implementations are fundamental in digital logic design and integrated circuit development.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Conclusion}
+
+In this experiment, a NOT gate was successfully implemented using a single NOR gate in the Logisim Evolution simulation environment. The observed simulation outputs matched the theoretical truth table for all possible input combinations. The experiment verified that the NOR gate can function as a NOT gate by connecting both of its inputs together, thereby reinforcing the concept of universal gates and their significance in digital logic circuit design.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiment 6: Implementation of NOT Gate Using NAND Gates}
+
+\subsection{Objective}
+
+The objectives of this experiment are:
+
+\begin{itemize}
+    \item To understand the logical operation of the NOT gate.
+    \item To verify that a NAND gate can function as a universal gate.
+    \item To implement a NOT gate using only a NAND gate in Logisim Evolution.
+    \item To verify the truth table of the implemented circuit through digital simulation.
+\end{itemize}
+
+\subsection{Theory}
+
+The NOT gate, also known as an inverter, is one of the fundamental digital logic gates. It produces the complement of its input signal. If the input is logic HIGH (1), the output becomes logic LOW (0), and if the input is logic LOW (0), the output becomes logic HIGH (1).
+
+The Boolean expression of a NOT gate is
+
+\[
+Y=\overline{A}
+\]
+
+A NAND gate is a universal logic gate because every basic logic gate can be implemented using only NAND gates. A NOT gate can be realized by connecting both inputs of a NAND gate together so that they receive the same input signal.
+
+The Boolean expression for implementing a NOT gate using a NAND gate is
+
+\[
+Y=A \ \text{NAND} \ A
+\]
+
+Using the NAND operation,
+
+\[
+Y=\overline{A \cdot A}
+\]
+
+Since
+
+\[
+A \cdot A=A
+\]
+
+therefore,
+
+\[
+Y=\overline{A}
+\]
+
+which is identical to the Boolean expression of a NOT gate.
+
+This experiment demonstrates one of the simplest applications of universal gates and verifies that a single NAND gate can perform the inversion operation.
+
+\subsection{Software Used}
+
+The circuit was designed and simulated using the following software:
+
+\begin{itemize}
+    \item Logisim Evolution
+\end{itemize}
+
+\subsection{Components Used}
+
+The following components available in Logisim Evolution were used for the simulation:
+
+\begin{itemize}
+    \item NAND Gate
+    \item Input Pin
+    \item Output Pin
+    \item Wiring Connections
+\end{itemize}
+
+\subsection{Truth Table}
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of NOT Gate}
+\begin{tabular}{|c|c|}
+\hline
+Input ($A$) & Output ($Y=\overline{A}$)\\
+\hline
+0 & 1\\
+\hline
+1 & 0\\
+\hline
+\end{tabular}
+\label{tab:notnandtruth}
+\end{table}
+
+\subsection{Circuit Diagram}
+
+The NOT gate was implemented by connecting both input terminals of a NAND gate to the same input signal. The complete circuit was designed in Logisim Evolution.
+
+\begin{figure}[H]
+\centering
+% Replace with your own image
+\includegraphics[width=0.65\textwidth]{Figures/circuit6.png}
+\caption{Implementation of NOT Gate Using NAND Gate in Logisim Evolution}
+\label{fig:notnand}
+\end{figure}
+
+\subsection{Simulation Procedure}
+
+The following steps were performed in Logisim Evolution to simulate the circuit:
+
+\begin{enumerate}
+    \item Open Logisim Evolution and create a new project.
+    \item Place one NAND gate from the Gates library onto the workspace.
+    \item Add one input pin and one output pin.
+    \item Connect the same input pin to both input terminals of the NAND gate.
+    \item Connect the output terminal of the NAND gate to the output pin.
+    \item Run the simulation by toggling the input pin between logic 0 and logic 1.
+    \item Observe and record the output produced for each input condition.
+    \item Compare the observed outputs with the theoretical truth table of the NOT gate.
+    \item Verify that the simulated circuit performs the inversion operation correctly.
+\end{enumerate}
+
+
+
+\subsection{Observation}
+
+The observed outputs obtained during simulation are shown in Table~\ref{tab:observation6}.
+
+\begin{table}[H]
+\centering
+\caption{Observed Simulation Results}
+\begin{tabular}{|c|c|c|}
+\hline
+Input ($A$) & Observed Output ($Y$) & Expected Output\\
+\hline
+0 & 1 & 1\\
+\hline
+1 & 0 & 0\\
+\hline
+\end{tabular}
+\label{tab:observation6}
+\end{table}
+
+\subsection{Result}
+
+The Logisim Evolution simulation successfully demonstrated that a NOT gate can be implemented using a single NAND gate by connecting both of its input terminals together. The simulated outputs exactly matched the theoretical truth table of the NOT gate, confirming the correctness of the circuit implementation.
+
+\subsection{Discussion}
+
+The experiment illustrates one of the simplest applications of the universal NAND gate. Instead of using a dedicated inverter, the inversion operation can be achieved by connecting both inputs of a NAND gate to the same logic signal. During simulation in Logisim Evolution, the circuit behaved exactly as predicted by Boolean algebra. The observed outputs matched the expected logical inversion for every input combination without any discrepancies. This experiment reinforces the concept that universal gates can be used to construct all basic logic gates and forms the basis for designing more complex combinational and sequential digital circuits.
+
+\subsection{Conclusion}
+
+The implementation of a NOT gate using a NAND gate was successfully completed through simulation in Logisim Evolution. The experiment verified that connecting both inputs of a NAND gate to the same input signal produces the complement of that signal. The simulation results agreed with the theoretical truth table, demonstrating the universal property of NAND gates and enhancing the understanding of digital logic circuit design.
+
+
+%=========================================================
+% EXPERIMENT 7
+%=========================================================
+
+\section{Experiment 7}
+\subsection{Title}
+\textbf{Implementation of Full Adder and Verification of Its Operation Using Logisim Evolution}
+
+\subsection{Objective}
+
+The objectives of this experiment are:
+
+\begin{itemize}
+    \item To understand the operating principle of a Full Adder circuit.
+    \item To design and implement a Full Adder using basic logic gates in Logisim Evolution.
+    \item To understand the relationship between Half Adders and a Full Adder.
+    \item To verify the functionality of the designed circuit by applying all possible input combinations.
+    \item To analyze the generated Sum and Carry outputs using simulation results.
+\end{itemize}
+
+\subsection{Theory}
+
+A \textbf{Full Adder} is a combinational digital logic circuit that performs the addition of three one-bit binary inputs. These inputs consist of two operand bits ($A$ and $B$) and one carry input ($C_{in}$) received from the previous stage of addition. The circuit generates two outputs:
+
+\begin{itemize}
+    \item \textbf{Sum ($S$)}
+    \item \textbf{Carry Output ($C_{out}$)}
+\end{itemize}
+
+Unlike a Half Adder, which can only add two binary bits, a Full Adder includes an additional carry input, making it suitable for multi-bit binary addition. Consequently, Full Adders are widely used in arithmetic circuits such as ripple carry adders, carry look-ahead adders, Arithmetic Logic Units (ALUs), processors, and digital computing systems.
+
+A Full Adder can be constructed using two Half Adders and one OR gate.
+
+The Boolean expressions of a Full Adder are:
+
+\begin{equation}
+S=A\oplus B\oplus C_{in}
+\end{equation}
+
+\begin{equation}
+C_{out}=AB+C_{in}(A\oplus B)
+\end{equation}
+
+where $\oplus$ denotes the Exclusive-OR (XOR) operation.
+
+The corresponding truth table is shown in Table~\ref{tab:fa_truth}.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of Full Adder}
+\label{tab:fa_truth}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{A} & \textbf{B} & \textbf{$C_{in}$} & \textbf{Sum} & \textbf{$C_{out}$}\\
+\hline
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 1 & 0\\
+0 & 1 & 0 & 1 & 0\\
+0 & 1 & 1 & 0 & 1\\
+1 & 0 & 0 & 1 & 0\\
+1 & 0 & 1 & 0 & 1\\
+1 & 1 & 0 & 0 & 1\\
+1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Required Software}
+
+\begin{itemize}
+    \item Logisim Evolution
+\end{itemize}
+
+\subsection*{Required Components}
+
+The following logic components available in Logisim Evolution were used:
+
+\begin{itemize}
+    \item XOR Gates (2)
+    \item AND Gates (2)
+    \item OR Gate (1)
+    \item Input Pins (A, B, $C_{in}$)
+    \item Output Pins (Sum, $C_{out}$)
+    \item Wires and Splitters (if necessary)
+\end{itemize}
+
+\subsection*{Simulation Procedure}
+
+Since this experiment was performed entirely using \textbf{Logisim Evolution}, no physical hardware implementation was carried out.
+
+\begin{enumerate}
+
+\item Open Logisim Evolution and create a new project.
+
+\item Construct the first Half Adder using one XOR gate and one AND gate.
+
+\begin{itemize}
+    \item Inputs: $A$ and $B$
+    \item Outputs:
+    \begin{itemize}
+        \item Intermediate Sum ($S_1$)
+        \item Carry ($C_1$)
+    \end{itemize}
+\end{itemize}
+
+\item Construct the second Half Adder.
+
+\begin{itemize}
+    \item Inputs: $S_1$ and $C_{in}$
+    \item Outputs:
+    \begin{itemize}
+        \item Final Sum ($S$)
+        \item Carry ($C_2$)
+    \end{itemize}
+\end{itemize}
+
+\item Connect the carry outputs $C_1$ and $C_2$ to an OR gate to obtain the final carry output ($C_{out}$).
+
+\item Verify that all logic gates are correctly interconnected.
+
+\item Save the circuit design.
+
+\item Simulate the circuit by applying every possible combination of the three input variables ($A$, $B$, and $C_{in}$).
+
+\item Observe the generated outputs (Sum and $C_{out}$) for each input combination.
+
+\item Compare the simulated outputs with the theoretical truth table to verify the correctness of the circuit.
+
+\end{enumerate}
+
+\subsection{Circuit Diagram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Figures/circuit7.png}
+    \caption{Full Adder Circuit Designed in Logisim Evolution}
+    \label{fig:fulladder}
+\end{figure}
+
+% Insert Simulation 1
+
+
+\subsection{Observation}
+
+The simulated outputs were found to be consistent with the theoretical truth table of the Full Adder.
+
+During simulation, several representative input combinations were examined. For example:
+
+\begin{itemize}
+
+\item When the 8-bit Full Adder displayed \texttt{10} at the Sum output and \texttt{0} at the Carry Output, the least significant bit corresponded to a one-bit addition with $A=1$, $B=1$, and $C_{in}=0$, which produced $S=0$ and $C_{out}=1$. This agrees with the expected Full Adder operation.
+
+\item Similarly, when the 8-bit Full Adder displayed \texttt{11} at the Sum output and \texttt{0} at the Carry Output, the least significant stage corresponded to $A=1$, $B=1$, and $C_{in}=1$, yielding $S=1$ and $C_{out}=1$, which also matches the theoretical result.
+\[
+A=1,\; B=1,\; C_{in}=0
+\]
+which produced:
+\[
+S=0,\qquad C_{out}=1
+\]
+This agrees with the expected Full Adder operation.
+
+\item Similarly, when the 8-bit Full Adder displayed \texttt{11} at the Sum output and \texttt{0} at the Carry Output, the least significant stage corresponded to:
+\[
+A=1,\; B=1,\; C_{in}=1
+\]
+yielding:
+\[
+S=1,\qquad C_{out}=1
+\]
+which also matches the theoretical result.
+
+\item All remaining input combinations produced outputs identical to those listed in the truth table, confirming the correctness of the designed circuit.
+
+\end{itemize}
+
+\subsection{Discussion}
+
+The Full Adder was successfully implemented by combining two Half Adders with one OR gate. Simulation in Logisim Evolution demonstrated that the circuit correctly performed binary addition for every possible input combination.
+
+The XOR gates generated the required Sum output, while the AND and OR gates correctly generated the Carry output. Since the experiment was performed entirely through software simulation, logic verification could be completed without requiring any physical electronic components.
+
+The experiment also demonstrated that a Full Adder serves as the fundamental building block for constructing multi-bit binary adders. The successful operation of the simulated circuit confirms the correctness of the theoretical Boolean expressions and logical design.
+
+\subsection{Result}
+
+The Full Adder circuit was successfully designed and simulated in Logisim Evolution. The observed Sum and Carry outputs matched the theoretical truth table for all eight possible input combinations, confirming the correct implementation and operation of the Full Adder.
+
+\subsection{Conclusion}
+
+In this experiment, a Full Adder was designed and implemented using basic logic gates in Logisim Evolution. The circuit was constructed from two Half Adders and one OR gate, demonstrating how complex arithmetic circuits can be built from simpler digital components. Simulation results verified the correct generation of both the Sum and Carry outputs for every possible input combination.
+
+This experiment strengthened the understanding of binary addition, combinational logic design, Boolean algebra, and hierarchical circuit implementation. Since Full Adders are the basic building blocks of multi-bit adders and Arithmetic Logic Units (ALUs), mastering their design is essential for the study of digital electronics and computer architecture.
+
+%=========================================================
+\section{Experiment 8}
+
+\subsection{Title}
+\textbf{Implementation of a Binary to BCD Converter Using Logisim Evolution}
+
+%=========================================================
+\subsection{Objective}
+
+The objectives of this experiment are:
+
+\begin{itemize}
+    \item To understand the concept of Binary-Coded Decimal (BCD) representation.
+    \item To study the conversion of a 4-bit binary number into its corresponding BCD output.
+    \item To design and simulate a Binary to BCD converter using Logisim Evolution.
+    \item To verify the correctness of the converter by testing different binary input combinations.
+    \item To understand the practical importance of Binary to BCD conversion in digital display systems.
+\end{itemize}
+
+%=========================================================
+\subsection{Theory}
+
+Digital systems internally perform arithmetic and logical operations using binary numbers. However, many digital devices such as calculators, digital clocks, counters, and measuring instruments display information in decimal form for easy interpretation. Therefore, a conversion circuit is often required to convert binary numbers into their equivalent decimal representation.
+
+Binary-Coded Decimal (BCD) is a numerical representation in which each decimal digit is represented by its corresponding 4-bit binary code. Unlike ordinary binary representation, each decimal digit is encoded separately. For example,
+
+\[
+(25)_{10}=(0010\ 0101)_{BCD}
+\]
+
+where the decimal digits 2 and 5 are individually represented by their 4-bit binary equivalents.
+
+A Binary to BCD converter is a combinational logic circuit that converts a binary input into its equivalent BCD representation. For a 4-bit binary input, values from decimal 0 to 9 can be represented directly in BCD with a single BCD digit. Binary values from 10 to 15 require two BCD digits (tens and ones). During this experiment, the converter circuit was designed and simulated using basic logic gates available in Logisim Evolution.
+
+The converter receives four binary input bits:
+
+\[
+B_3,\;B_2,\;B_1,\;B_0
+\]
+
+where $B_3$ is the Most Significant Bit (MSB) and $B_0$ is the Least Significant Bit (LSB).
+
+The output consists of four BCD bits:
+
+\[
+D_4,\;D_3,\;D_2,\;D_1
+\]
+
+which represent the converted decimal digit and can be connected to a BCD-to-Seven-Segment Decoder for display purposes.
+
+Binary to BCD conversion is widely used in:
+
+\begin{itemize}
+    \item Digital clocks
+    \item Electronic calculators
+    \item Digital voltmeters
+    \item Frequency counters
+    \item Embedded systems with seven-segment displays
+    \item Industrial control and measurement systems
+\end{itemize}
+
+Since the converter is a combinational circuit, its outputs depend only on the present input values and do not require any memory elements.
+
+%=========================================================
+\subsection{Required Software}
+
+\begin{itemize}
+    \item Logisim Evolution
+    \item Computer with Windows/Linux operating system
+\end{itemize}
+
+%=========================================================
+\subsection{Components Used}
+
+The following components available in Logisim Evolution were used to implement the circuit:
+
+\begin{itemize}
+    \item Input Pins (4)
+    \item AND Gates
+    \item OR Gates
+    \item NOT Gates
+    \item XOR Gates (if required)
+    \item Output Pins
+    \item BCD to Seven-Segment Display Decoder
+    \item Seven-Segment Display
+    \item Wires and Splitters
+\end{itemize}
+
+%=========================================================
+\subsection{Truth Table}
+
+Table~\ref{tab:bcdtruth} shows the Binary to BCD conversion for all possible 4-bit binary inputs.
+
+\begin{table}[H]
+\centering
+\caption{Truth Table of Binary to BCD Converter}
+\label{tab:bcdtruth}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c||c|c|c|c|}
+\hline
+$B_3$ & $B_2$ & $B_1$ & $B_0$ & $D_4$ & $D_3$ & $D_2$ & $D_1$\\
+\hline
+0&0&0&0&0&0&0&0\\
+0&0&0&1&0&0&0&1\\
+0&0&1&0&0&0&1&0\\
+0&0&1&1&0&0&1&1\\
+0&1&0&0&0&1&0&0\\
+0&1&0&1&0&1&0&1\\
+0&1&1&0&0&1&1&0\\
+0&1&1&1&0&1&1&1\\
+1&0&0&0&1&0&0&0\\
+1&0&0&1&1&0&0&1\\
+1&0&1&0&1&0&1&0\\
+1&0&1&1&1&0&1&1\\
+1&1&0&0&1&1&0&0\\
+1&1&0&1&1&1&0&1\\
+1&1&1&0&1&1&1&0\\
+1&1&1&1&1&1&1&1\\
+\hline
+\end{tabular}
+\end{table}
+
+%=========================================================
+\subsection{Circuit Diagram}
+
+
+\begin{figure}[H]
+\centering
+ \includegraphics[width=0.85\textwidth]{Figures/circuit8.png}
+\caption{Binary to BCD Converter Circuit Implemented in Logisim Evolution}
+\label{fig:circuit}
+\end{figure}
+
+%=========================================================
+\subsection{Simulation Setup}
+
+The Binary to BCD converter was designed entirely in Logisim Evolution using basic combinational logic gates. Four input pins represented the binary inputs ($B_3$, $B_2$, $B_1$, and $B_0$), while the output pins represented the converted BCD outputs. The BCD outputs were further connected to a BCD-to-Seven-Segment Decoder and a Seven-Segment Display to visualize the converted decimal digit.
+
+The simulation was performed by changing the binary input combinations using the poke tool available in Logisim Evolution. The corresponding BCD outputs and the displayed decimal digit were observed and compared with the expected theoretical values.
+
+%=========================================================
+\subsection{Procedure}
+
+The experiment was carried out through simulation in Logisim Evolution following the steps below:
+
+\begin{enumerate}
+    \item Open Logisim Evolution and create a new project.
+    
+    \item Place four input pins and label them as $B_3$, $B_2$, $B_1$, and $B_0$.
+    
+    \item Design the Binary to BCD converter using the required logic gates according to the conversion logic.
+    
+    \item Connect the generated BCD outputs to output pins labeled $D_4$, $D_3$, $D_2$, and $D_1$.
+    
+    \item Connect the BCD outputs to a BCD-to-Seven-Segment Decoder and then to a Seven-Segment Display.
+    
+    \item Verify all wiring connections and ensure there are no floating inputs or disconnected outputs.
+    
+    \item Run the simulation using the poke tool.
+    
+    \item Apply different combinations of binary inputs from 0000 to 1111.
+    
+    \item Observe the corresponding BCD outputs and the decimal digit displayed on the seven-segment display.
+    
+    \item Compare the observed outputs with the expected values given in the truth table.
+    
+    \item Capture screenshots of the completed circuit and selected simulation results for documentation.
+\end{enumerate}
+
+%=========================================================
+\subsection{Observed Simulation Results}
+
+The Binary to BCD converter was successfully simulated in Logisim Evolution. Different binary input combinations were applied, and the corresponding BCD outputs were obtained correctly. The outputs matched the expected conversion values listed in the truth table.
+
+The seven-segment display correctly represented the decimal equivalent corresponding to the generated BCD output. No incorrect outputs or unstable conditions were observed during the simulation.
+
+%=========================================================
+\subsection{Result}
+
+The Binary to BCD converter was successfully designed and simulated in Logisim Evolution. The converter accurately transformed each 4-bit binary input into its corresponding BCD representation. The observed outputs matched the theoretical truth table, confirming the correct operation of the implemented combinational logic circuit.
+
+%=========================================================
+\subsection{Discussion}
+
+The Binary to BCD converter demonstrates the practical application of combinational logic circuits in digital systems. Binary representation is efficient for computation inside digital devices, whereas decimal representation is more convenient for human interpretation. Therefore, Binary to BCD converters serve as an important interface between computational circuits and display systems.
+
+Throughout the simulation, the converter correctly generated the expected BCD outputs for all tested binary inputs. The integration of a BCD-to-Seven-Segment Decoder allowed the converted values to be visualized clearly on the seven-segment display, making verification straightforward.
+
+The experiment also reinforced the understanding that combinational circuits produce outputs solely based on the present input values without requiring memory or sequential elements. Simulation using Logisim Evolution provided an efficient platform for designing, testing, and validating the circuit before any hardware implementation.
+
+%=========================================================
+\subsection{Conclusion}
+
+In this experiment, a Binary to BCD converter was successfully implemented and verified using Logisim Evolution. The simulation demonstrated the correct conversion of binary inputs into their equivalent BCD outputs, which were subsequently displayed on a seven-segment display through a BCD decoder. The experiment enhanced the understanding of binary number systems, BCD representation, combinational logic design, and their practical applications in digital display devices. The simulation results were consistent with the theoretical truth table, confirming the correctness of the implemented circuit.
+
+%=========================================================
+\subsection{References}
+
+\begin{thebibliography}{9}
+
+\bibitem{mano}
+M. M. Mano and M. D. Ciletti,
+\textit{Digital Design},
+6th ed.,
+Pearson, 2018.
+
+\bibitem{floyd}
+T. L. Floyd,
+\textit{Digital Fundamentals},
+11th ed.,
+Pearson, 2015.
+
+\bibitem{tocci}
+R. J. Tocci, N. Widmer, and G. Moss,
+\textit{Digital Systems: Principles and Applications},
+12th ed.,
+Pearson, 2017.
+
+\bibitem{katz}
+R. H. Katz and G. Borriello,
+\textit{Contemporary Logic Design},
+2nd ed.,
+Pearson, 2005.
+
+\bibitem{logisim}
+Logisim Evolution Developers,
+``Logisim Evolution: Digital Logic Simulator,''
+GitHub Repository.
+Available: \url{https://github.com/logisim-evolution/logisim-evolution}
+(Accessed: Jul. 2026).
+
+\end{thebibliography}
+
+\end{document}
