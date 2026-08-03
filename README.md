@@ -65,6 +65,6 @@ Rajshahi – 6204
 
 | Lab No. | Experiment Title | Report |
 | :---: | :---: | :---: |
-| 01 | Number Systems | [📄 View Report](https://github.com/uddiponchowdhury/ECE-2112_2410019/blob/main/DT_Lab_01.pdf)|
+| 01 | Number Systems | [📄 View Report](https://github.com/uddiponchowdhury/ECE-2112_2410019/blob/main/%5BLab%20Report%201%5D/filename.pdf)|
 
 </div>
